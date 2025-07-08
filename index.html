@@ -95,16 +95,16 @@
         .collage-item .overlay h3 { font-family: 'Lora', serif; font-size: 1.5rem; margin: 0; }
         .collage-item .overlay p { margin: 0.25rem 0 0; opacity: 0.8; }
 
-        /* --- PRICING STYLES (NOW DEPRECATED, BUT KEPT FOR REFERENCE) --- */
-        .pricing-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 2rem; 
-            align-items: stretch; 
-            margin-top: 4rem; 
+        /* --- UPDATED PRICING STYLES --- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Force 3 side-by-side columns on larger screens */
+            gap: 2rem;
+            align-items: stretch;
+            margin-top: 4rem;
         }
         .pricing-card { background-color: #fff; border: 1px solid var(--border-color); border-radius: 1rem; padding: 2.5rem; display: flex; flex-direction: column; text-align: center; }
-        .pricing-card.professional { border-color: var(--accent); box-shadow: 0 0 25px rgba(160, 138, 125, 0.2); }
+        .pricing-card.professional { border-color: var(--accent); box-shadow: 0 0 25px rgba(160, 138, 125, 0.2); transform: scale(1.05); }
         .pricing-card h3 { font-family: 'Lora', serif; font-size: 1.5rem; color: var(--text-dark); }
         .pricing-card .price { font-size: 2.5rem; font-weight: 600; color: var(--text-dark); margin: 1rem 0 0.5rem; }
         .pricing-card .price-subtitle { font-size: 1rem; color: var(--text-muted); margin-bottom: 2rem; }
@@ -124,6 +124,10 @@
         /* Media queries */
         @media (max-width: 991px) {
             #code-background { display: none; }
+            .pricing-card.professional { transform: none; } /* Disable zoom on tablet */
+            .pricing-grid {
+                grid-template-columns: 1fr; /* Stack cards on tablets and smaller */
+            }
         }
         @media (max-width: 767px) {
             .portfolio-collage {
@@ -159,13 +163,14 @@
             margin: 0;
             white-space: pre;
         }
-        .code-keyword { color: #af00db; }
-        .code-function { color: #795e26; }
-        .code-string { color: #a31515; }
-        .code-comment { color: #008000; }
-        .code-variable { color: #001080; }
+        /* UPDATED: Muted color scheme for code */
+        .code-keyword { color: #9B887B; }
+        .code-function { color: #8a7d74; }
+        .code-string { color: #9c8c82; }
+        .code-comment { color: #b0a69f; }
+        .code-variable { color: #6b6b6b; }
         .code-operator { color: #3a3a3a; }
-        .code-number { color: #098658; }
+        .code-number { color: #A08A7D; }
     </style>
 </head>
 <body>
@@ -203,9 +208,6 @@
                         <div letters-slide-up="" text-split="" class="heading-jumbo xlarge" style="font-size: clamp(2.5rem, 8vw, 7rem);">
                             We build websites for realtors.
                         </div>
-                        <p words-fade-in="" text-split="" class="paragraph-big" style="max-width: 60ch;">
-                            High-performance websites designed to generate leads and sell properties.
-                        </p>
                     </div>
                 </div>
                 <div class="hero-image-wrapper">
@@ -265,19 +267,20 @@
                         </div>
                     </div>
                     <div class="portfolio-collage">
-                        <a href="#" class="collage-item collage-item-1">
+                        <!-- UPDATED LINKS -->
+                        <a href="https://jacksoncott1.github.io/demo1/" target="_blank" class="collage-item collage-item-1">
                             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Spacious modern living room">
                             <div class="overlay"><h3>Montecito Estate</h3><p>Luxury Property Portal</p></div>
                         </a>
-                        <a href="#" class="collage-item collage-item-2">
+                        <a href="https://spark-designs.github.io/demo4/" target="_blank" class="collage-item collage-item-2">
                             <img src="https://onekindesign.com/wp-content/uploads/2017/03/Modern-Coastal-Home-MHK-Architecture-01-1-Kindesign.jpg" alt="Bright and airy coastal living room">
                             <div class="overlay"><h3>Coastal Living</h3><p>Vacation Rental Platform</p></div>
                         </a>
-                        <a href="#" class="collage-item collage-item-3">
+                        <a href="https://spark-designs.github.io/demo3/" target="_blank" class="collage-item collage-item-3">
                             <img src="https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=1965&auto=format&fit=crop" alt="Cozy bedroom with natural light">
                             <div class="overlay"><h3>Aspen Group</h3><p>Agent Branding</p></div>
                         </a>
-                        <a href="#" class="collage-item collage-item-4">
+                        <a href="https://spark-designs.github.io/demo2/" target="_blank" class="collage-item collage-item-4">
                             <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=2070&auto=format&fit=crop" alt="House exterior at dusk">
                             <div class="overlay"><h3>Park Avenue</h3><p>City Condos</p></div>
                         </a>
@@ -293,21 +296,46 @@
                         <p class="paragraph-big">Transparent pricing for every need.</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="half-block third inverse">
-                        <h2 class="numbering inverse">1</h2>
-                        <h2>Essential</h2>
-                        <p class="paragraph-light mobile-left">Includes a custom multi-page design, mobile responsiveness, and basic SEO setup to get you started.</p>
+                <!-- UPDATED PRICING SECTION -->
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Basic</h3>
+                        <div class="price">$299</div>
+                        <div class="price-subtitle">One-Time Setup Fee</div>
+                        <ul class="features-list">
+                            <li>Custom Single-Page Design</li>
+                            <li>Mobile & Tablet Responsive</li>
+                            <li>Contact & Lead Form</li>
+                            <li>Basic SEO Setup</li>
+                            <li>Domain Connection Support</li>
+                        </ul>
+                        <a href="#contact" class="button inverse w-button">Get Started</a>
                     </div>
-                    <div class="half-block third inverse">
-                        <h2 class="numbering inverse">2</h2>
-                        <h2>Professional</h2>
-                        <p class="paragraph-light mobile-left">Everything in Essential, plus full IDX/MLS integration, advanced search, and neighborhood guides for a complete solution.</p>
+                    <div class="pricing-card professional">
+                        <h3>Professional</h3>
+                        <div class="price">$299</div>
+                        <div class="price-subtitle">+ $49 / month</div>
+                        <ul class="features-list">
+                            <li>Everything in Basic, plus:</li>
+                            <li><b>Full Multi-Page Website (5 pages)</b></li>
+                            <li><b>IDX / MLS Integration</b></li>
+                            <li>Secure Hosting & Maintenance</li>
+                            <li>Priority Email Support</li>
+                        </ul>
+                        <a href="#contact" class="button inverse w-button">Most Popular</a>
                     </div>
-                    <div class="half-block third inverse">
-                        <h2 class="numbering inverse">3</h2>
-                        <h2>Bespoke</h2>
-                        <p class="paragraph-light mobile-left">A fully custom solution with advanced CRM and API integrations, plus ongoing support for top-tier agents.</p>
+                    <div class="pricing-card">
+                        <h3>Premium</h3>
+                        <div class="price">$499+</div>
+                        <div class="price-subtitle">+ $49 / month</div>
+                        <ul class="features-list">
+                             <li>Everything in Professional, plus:</li>
+                            <li><b>Unlimited Pages & Posts</b></li>
+                            <li>Advanced SEO & Analytics</li>
+                            <li>Blog & Neighborhood Guides</li>
+                            <li>CRM Integration</li>
+                        </ul>
+                        <a href="#contact" class="button inverse w-button">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -398,8 +426,8 @@
             const missionTop = missionSection.offsetTop;
             codeContainer.style.height = `${missionTop}px`;
             
-            // Fade in the container
-            codeContainer.style.opacity = '1';
+            // Fade in the container to a semi-translucent state
+            codeContainer.style.opacity = '0.6';
 
             const codeSnippets = [
                 `<span class="code-comment">// Initializing IDX Property Fetcher...</span>`,
