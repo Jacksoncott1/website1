@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,6 +38,9 @@
         .button.inverse { background-color: var(--text-dark); color: var(--bg-light); border-radius: 99px; transition: all 0.3s ease; }
         .button.inverse:hover { background-color: #000; }
         .burger-line { background-color: var(--text-dark); }
+        .block.hero {
+            padding-bottom: 15vh; /* Adjusted padding to move heading up */
+        }
         .hero-image-wrapper { border-radius: 1rem; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
         .hero-image { width: 100%; height: 100%; object-fit: cover; }
         [text-split] { opacity: 0; }
@@ -348,7 +351,7 @@
                             Ready to elevate your brand and generate more leads? We're here to help you create a stunning, high-performing website that reflects the quality of your business. Let's discuss your vision and how we can bring it to life.
                         </p>
                         <p class="paragraph-big" style="max-width: 800px; margin-top: 2rem;">
-                            <strong>Give us a text or call to get started:</strong>
+                            <strong>Give us a call to get started:</strong>
                             <br>
                             <a href="tel:832-510-5620" style="font-size: 2rem; font-weight: 600; color: var(--accent); text-decoration: none; letter-spacing: 1px;">832-510-5620</a>
                         </p>
@@ -475,12 +478,9 @@
             let lineIndex = 0;
 
             function typeLine() {
+                // Stop the animation when all lines are typed
                 if (lineIndex >= codeSnippets.length) {
-                    // Loop the animation for a continuous effect
-                    lineIndex = 0;
-                    allLines = []; 
-                    setTimeout(typeLine, 2000); // Pause before restarting
-                    return;
+                    return; 
                 }
 
                 // Add the new line to our master array of typed lines
