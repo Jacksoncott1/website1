@@ -111,7 +111,11 @@
         .pricing-card .features-list { text-align: left; margin: 0 auto 2rem; padding-left: 1.5rem; color: var(--text-muted); list-style-type: '✓  '; flex-grow: 1; }
         .pricing-card .features-list li { margin-bottom: 0.75rem; }
         
-        .contact-section { background-color: var(--bg-secondary); text-align: center; }
+        .contact-section { background-color: var(--bg-secondary); }
+        .form-block { background-color: #fff; padding: 3rem; border-radius: 1rem; border: 1px solid var(--border-color); }
+        .text-field.inverse { background-color: var(--bg-secondary); border-color: var(--border-color); color: var(--text-dark); }
+        .text-field.inverse::placeholder { color: #999; }
+        .text-field.inverse:focus { border-color: var(--accent); }
         .logo-text.inverse { color: var(--text-dark); }
         .paragraph-xsmall { color: var(--text-muted); }
         .paragraph-xsmall a { color: var(--text-muted); text-decoration: underline; }
@@ -337,21 +341,24 @@
             </div>
         </div>
 
-        <!-- UPDATED CONTACT SECTION -->
         <div class="section inverse padding-bottom wf-section contact-section">
             <div id="contact" class="id-navigator"></div>
-            <div class="wrapper">
-                <div class="block">
-                    <div class="center-items">
-                        <div class="heading-jumbo small">Let's Build Your Digital Presence</div>
-                        <p class="paragraph-big" style="max-width: 800px;">
-                            Ready to elevate your brand and generate more leads? We're here to help you create a stunning, high-performing website that reflects the quality of your business. Let's discuss your vision and how we can bring it to life.
-                        </p>
-                        <p class="paragraph-big" style="max-width: 800px; margin-top: 2rem;">
-                            <strong>Give us a text or call to get started:</strong>
-                            <br>
-                            <a href="tel:832-510-5620" style="font-size: 2rem; font-weight: 600; color: var(--accent); text-decoration: none; letter-spacing: 1px;">832-510-5620</a>
-                        </p>
+            <div class="wrapper flex">
+                <div class="half-block">
+                    <div class="heading-jumbo small left">Contact Us</div>
+                    <p class="paragraph-big max-width">Message us for all inquiries, and we'll get back to you as quickly as possible.</p>
+                </div>
+                <div class="half-block">
+                    <div class="form-block">
+                        <form id="contact-form" name="contact-form" method="get" class="form contact-form">
+                            <label for="Your-name" class="label">Name</label>
+                            <input type="text" class="text-field inverse margin-bottom w-input" maxlength="256" name="Your-name" placeholder="Enter your name" id="Your-name">
+                            <label for="E-mail" class="label">Email Address</label>
+                            <input type="email" class="text-field inverse margin-bottom w-input" maxlength="256" name="E-mail" placeholder="Enter your e-mail" id="E-mail" required="">
+                            <label for="Message" class="label">Message</label>
+                            <textarea placeholder="Tell us about your project..." maxlength="5000" id="Message" name="Message" class="text-field inverse large w-input"></textarea>
+                            <input type="submit" value="Submit" data-wait="Please wait..." class="button wide margin-top w-button inverse">
+                        </form>
                     </div>
                 </div>
             </div>
